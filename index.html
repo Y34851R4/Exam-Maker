@@ -1,0 +1,128 @@
+<html>
+<head>
+	<title>TRYER</title>
+</head>
+<style>
+* {
+	Letter-spacing: 1px;
+}
+#questionmkcon {
+	background: -moz-linear-gradient(top,#111,#444);
+	margin: 0;
+	position: absolute;
+	top: 0px;
+	left: 0;
+	width: 97.1%;
+	height: 200px;
+	padding: 15px;
+	transition: top 0.7s;
+	color: white;
+	border-bottom: 1px solid #999;
+}
+#questionmkcon #after {
+	display: block;
+	background: url(getdown.png);
+	position: absolute;
+	width: 36px;
+	height: 18px;
+	top: 100%;
+	left: 45%;
+	border: 1px solid #999;
+	cursor: pointer;
+}
+.qtaker {
+	border: 1px solid #888;
+	padding: 5px;
+	width: 500px;
+}
+input[type="submit"] {
+	border: 1px solid #888;
+	padding: 4px;
+	width: 90px;
+	cursor: pointer;
+	background: -moz-linear-gradient(top,#888,#aaa);
+}
+table {
+	border-spacing: 5px;
+	color: #333;
+}
+table tr td input[type=text] {
+	border: 1px solid #999;
+	padding: 3px;
+}
+</style>
+<script>
+function otherone() {
+	var fs=document.getElementById("numinc");
+	var a=0;
+	var qtaker = document.getElementById("qtaker");
+	var A = document.getElementById("A");
+	var B = document.getElementById("B");
+	var C = document.getElementById("C");
+	var D = document.getElementById("D");
+	var qmaker = document.getElementById("qmaker");
+	var n1=document.getElementById("numinc").innerHTML;
+	if (qtaker.value == "" || A.value == "" || B.value == "" || C.value == "" || D.value == "" || ansshw.value == "") {
+		return false;
+	}	
+	fs.innerHTML=fs.innerHTML*1+1;
+}
+function questionsubmiter() {
+	var qtaker = document.getElementById("qtaker");
+	var A = document.getElementById("A");
+	var B = document.getElementById("B");
+	var C = document.getElementById("C");
+	var D = document.getElementById("D");
+	var ansshw = document.getElementById("ansshw");
+	var qmaker = document.getElementById("qmaker");
+	var n1=document.getElementById("numinc").innerHTML;
+	if (qtaker.value == "" || A.value == "" || B.value == "" || C.value == "" || D.value == "" || ansshw.value == "" ) {
+		alert("Please Input All values To Submit");
+		return false;
+	}
+	n1=n1*1+1;
+	qmaker.innerHTML+='<table ><tr><td><input type="text" id="ansos" style="width: 20px;  color: #555; text-transform: uppercase; font-weight: bold;"></td><td>'+n1+'.</td><td colspan="4">'+qtaker.value+'<input type="text" id="rans" value="'+ansshw.value+'"  style="display: none;"></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td id="ansa">A.</td><td>'+A.value+'</td></tr><tr><td></td><td></td><td id="ansb">B.</td><td>'+B.value+'</td></tr><tr><td></td><td></td><td id="ansc">C.</td><td>'+C.value+'</td></tr><tr>			<td></td>			<td></td>			<td id="ansd">D.</td><td>'+D.value+'</td>		</tr>	</table>'
+}
+
+</script>
+<body>
+<div id="questionmkcon">
+	<input type="text" id="qtaker" class="qtaker" placeholder="Add Your questions Here..."><input type="submit" value="Submit" onclick="questionsubmiter(), otherone()">
+	<br>
+	<br>
+	<table style="color: #ccc;">
+		<tr>
+			<td>A. <input type="text" value="asdf" Placeholder="Write Answer Here" id="A" onclick="ansgetter()"></td>
+		</tr>
+		<tr>
+			<td>B. <input type="text" Placeholder="Write Answer Here" id="B" onclick="ansgetter()"></td>
+		</tr>
+		<tr>
+			<td>C. <input type="text" Placeholder="Write Answer Here" id="C" onclick="ansgetter()"></td>
+		</tr>
+		<tr>
+			<td>D. <input type="text" Placeholder="Write Answer Here" id="D" onclick="ansgetter()"></td>
+		</tr>
+		<tr>
+			<td style="float: right;">Ans: <input type="text" id="ansshw" maxlength="1" pattern="[A-D,a-d]" style="width: 20px;  color: blue; text-transform: uppercase; font-weight: bold;"></td>
+		</tr>
+	</table>
+	<span id="after" onclick="slidedou()"></span>
+</div>
+	<div style="float: right;">Number Of Questions : <div id="numinc">0</div></div>
+<br>	<br>
+	<div id="qmaker">
+	</div>
+
+<script>
+	function slidedou() {
+		var qmkcon = document.getElementById("questionmkcon");
+		if (qmkcon.style.top == "0px") {
+			qmkcon.style.cssText="top: -230px;"
+			return false;
+		}
+		qmkcon.style.cssText="top: 0;";
+	}
+</script>
+</body>
+</html>
